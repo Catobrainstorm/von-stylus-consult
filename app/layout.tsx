@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "VON STYLUS Consult | Where Precision Meets Bold Vision",
-  description: "A bold, multi-disciplinary firm delivering strategy, creative media, advertising, and events across Africa, Europe, North America, and Asia.",
+  description: "VON STYLUS Consult — a bold, full-service consultancy in Lagos offering business strategy, creative media, advertising, and event management. We transform ambition into results.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

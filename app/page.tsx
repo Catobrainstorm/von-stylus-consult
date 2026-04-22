@@ -8,7 +8,9 @@ import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Approach from "@/components/Approach";
 import Team from "@/components/Team";
+import Testimonials from "@/components/Testimonials";
 import Clients from "@/components/Clients";
+import Insights from "@/components/Insights";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,33 +18,16 @@ export default function Home() {
   const [showBtt, setShowBtt] = useState(false);
 
   useEffect(() => {
-    // Scroll reveal — pure IntersectionObserver, zero lag
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            // Don't unobserve — keeps animation on re-entry clean
-          }
-        });
-      },
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in-view"); }),
       { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
+    document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
 
-    const els = document.querySelectorAll("[data-reveal]");
-    els.forEach((el) => observer.observe(el));
-
-    // Back to top
     const onScroll = () => setShowBtt(window.scrollY > 500);
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => { io.disconnect(); window.removeEventListener("scroll", onScroll); };
   }, []);
-
-  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <main>
@@ -53,16 +38,12 @@ export default function Home() {
       <WhyUs />
       <Approach />
       <Team />
+      <Testimonials />
       <Clients />
+      <Insights />
       <Contact />
       <Footer />
-
-      {/* Back to top */}
-      <button
-        className={`btt ${showBtt ? "show" : ""}`}
-        onClick={scrollTop}
-        aria-label="Back to top"
-      >
+      <button className={`btt ${showBtt ? "show" : ""}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top">
         <ChevronUp size={20} strokeWidth={2.5} />
       </button>
     </main>
