@@ -2,13 +2,12 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// ✅ BLACK PROFESSIONALS — Pexels diversity-focused images
+// ✅ LOCAL IMAGES — Updated to point to your public/images folder
 const slides = [
-  { url: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop", tag: "Strategy & Vision" },
-  { url: "https://images.pexels.com/photos/5717546/pexels-photo-5717546.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop", tag: "Leadership & Excellence" },
-  { url: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop", tag: "Creative Media" },
-  { url: "https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop", tag: "Consulting & Growth" },
-  { url: "https://images.pexels.com/photos/7551442/pexels-photo-7551442.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop", tag: "Events & Experiences" },
+  { url: "/images/image1.png", tag: "Strategy & Vision" },
+  { url: "/images/image2.png", tag: "Leadership & Excellence" },
+  { url: "/images/image3.png", tag: "Creative Media" },
+  { url: "/images/image4.png", tag: "Consulting & Growth" },
 ];
 
 const WORDS = [
@@ -58,7 +57,7 @@ export default function Hero() {
   return (
     <section id="top" style={{ position:"relative", minHeight:"100vh", display:"flex", flexDirection:"column", justifyContent:"flex-end", overflow:"hidden" }}>
 
-      {/* BG slides — BLACK PROFESSIONALS */}
+      {/* BG slides — LOCAL IMAGES */}
       {slides.map((s, i) => (
         <div key={i} className="hero-bg" style={{ backgroundImage:`url(${s.url})`, opacity: i===cur?1:0, zIndex:1 }} />
       ))}
@@ -75,13 +74,13 @@ export default function Hero() {
           <span className="section-label">Strategy · Media · Advertising · Events</span>
         </div>
 
-        {/* Headline — word by word */}
+        {/* Headline — word by word (UPDATED FONT) */}
         <div style={{ marginBottom:"clamp(1.5rem,3vh,2.5rem)", lineHeight:1.0 }}>
           {WORDS.map((w, i) => (
             <span key={i} className="word-wrap" style={{ marginRight:"0.22em" }}>
               <span ref={el=>{wordsRef.current[i]=el;}} className="word-inner" style={{
-                fontFamily:"'Playfair Display',serif",
-                fontWeight: w.italic ? 700 : 900,
+                fontFamily:"'Young Serif', serif", // ✅ CHANGED TO YOUNG SERIF
+                fontWeight: w.italic ? 400 : 400, // Young Serif is typically one weight
                 fontStyle: w.italic ? "italic" : "normal",
                 fontSize:"clamp(2.8rem,8.5vw,8.5rem)",
                 lineHeight:1.0,
@@ -94,22 +93,22 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* ✅ APPROVED SUBHEADLINE from copy brief */}
+        {/* Subheadline */}
         <p data-reveal data-delay="2" style={{ color:"rgba(255,255,255,0.52)", fontFamily:"'DM Sans',sans-serif", fontSize:"clamp(1rem,1.4vw,1.15rem)", lineHeight:1.85, maxWidth:560, marginBottom:"clamp(1.5rem,3vh,2.5rem)" }}>
           VON STYLUS Consult is where bold strategy meets creative power. We partner with businesses, governments, and visionaries to build brands, launch campaigns, and create experiences that move people and markets.
         </p>
 
-        {/* ✅ UPDATED CTAs from copy brief */}
+        {/* CTAs */}
         <div data-reveal data-delay="3" style={{ display:"flex", flexWrap:"wrap", gap:"1rem", marginBottom:"clamp(2.5rem,5vh,4rem)" }}>
           <button className="btn-primary" onClick={()=>scrollTo("#contact")}>Let's Build Something Bold →</button>
           <button className="btn-outline" onClick={()=>scrollTo("#services")}>Explore Our Services</button>
         </div>
 
-        {/* Stats */}
+        {/* Stats (UPDATED FONT) */}
         <div data-reveal data-delay="4" className="stats-2" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"clamp(1rem,2.5vw,2rem)", paddingTop:"clamp(1.5rem,3vh,2.5rem)", borderTop:"1px solid rgba(255,255,255,0.07)", maxWidth:700 }}>
-          {[{v:"12+",l:"Years"},{v:"56",l:"Countries"},{v:"10+",l:"Advisors"},{v:"£3M+",l:"Managed"}].map(s=>(
+          {[{v:"12+",l:"Years"},{v:"56",l:"Countries"},{v:"10+",l:"Advisors"}].map(s=>(
             <div key={s.l}>
-              <p style={{ fontFamily:"'Playfair Display',serif", fontWeight:900, fontSize:"clamp(1.6rem,3.5vw,2.6rem)", color:"#fff", lineHeight:1 }}>{s.v}</p>
+              <p style={{ fontFamily:"'Young Serif', serif", fontWeight:400, fontSize:"clamp(1.6rem,3.5vw,2.6rem)", color:"#fff", lineHeight:1 }}>{s.v}</p>
               <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:"0.57rem", letterSpacing:"0.2em", textTransform:"uppercase", color:"rgba(255,255,255,0.3)", marginTop:5 }}>{s.l}</p>
             </div>
           ))}

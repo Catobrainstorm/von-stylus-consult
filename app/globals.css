@@ -1,9 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 @import "tailwindcss";
 
+/* ── FONT DECLARATION ── */
+@font-face {
+  font-family: 'Young Serif';
+  src: url('/font/YoungSerif-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+/* Global Body Font remains DM Sans as requested for readability */
 body { background: #09071a; color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+/* ── UPDATED HEADINGS ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Young Serif', 'Playfair Display', serif !important;
+  font-weight: 400; /* Young Serif usually doesn't need 'bold' weight */
+}
 
 ::-webkit-scrollbar { width: 2px; }
 ::-webkit-scrollbar-track { background: #09071a; }
@@ -16,9 +33,9 @@ body { background: #09071a; color: #fff; font-family: 'DM Sans', sans-serif; ove
   transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
   will-change: opacity, transform;
 }
-[data-reveal="left"]  { transform: translateX(-44px); }
-[data-reveal="right"] { transform: translateX(44px); }
-[data-reveal="scale"] { transform: scale(0.93); }
+[data-reveal="left"]   { transform: translateX(-44px); }
+[data-reveal="right"]  { transform: translateX(44px); }
+[data-reveal="scale"]  { transform: scale(0.93); }
 [data-reveal].in-view { opacity: 1; transform: none; }
 [data-delay="1"] { transition-delay: 0.08s; }
 [data-delay="2"] { transition-delay: 0.16s; }
@@ -84,7 +101,7 @@ body { background: #09071a; color: #fff; font-family: 'DM Sans', sans-serif; ove
 }
 .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,199,0.55); }
 
-/* ── BTN LIGHT (on white sections) ── */
+/* ── BTN LIGHT ── */
 .btn-light {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 32px; border-radius: 100px;

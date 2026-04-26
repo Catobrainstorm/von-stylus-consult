@@ -5,15 +5,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    ignoreBuildErrors: true,
-  },
+  // Removed the 'eslint' and 'typescript' keys from the top level 
+  // if they are causing errors, use the standard Next 15+ format:
   eslint: {
-    // Same for ESLint errors
     ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 
