@@ -1,7 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+/* Keep DM Sans for body readability */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 @import "tailwindcss";
 
-/* ── FONT DECLARATION ── */
+/* ── LOCAL FONT DECLARATIONS ── */
+
+/* Playfair Display - Regular/Variable */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/font/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Supports the full range of variable weights */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Playfair Display - Italic/Variable */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/font/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Keeping Young Serif as your secondary heading option */
 @font-face {
   font-family: 'Young Serif';
   src: url('/font/YoungSerif-Regular.ttf') format('truetype');
@@ -13,20 +34,22 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
-/* Global Body Font remains DM Sans as requested for readability */
+/* Global Body Font remains DM Sans */
 body { background: #09071a; color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
 /* ── UPDATED HEADINGS ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Young Serif', 'Playfair Display', serif !important;
-  font-weight: 400; /* Young Serif usually doesn't need 'bold' weight */
+  /* Set Playfair Display as the primary font for headings */
+  font-family: 'Playfair Display', 'Young Serif', serif !important;
+  font-weight: 700; /* Adjusted for Playfair's elegant bold look */
 }
+
+/* ── REST OF YOUR STYLES (NO CHANGES) ── */
 
 ::-webkit-scrollbar { width: 2px; }
 ::-webkit-scrollbar-track { background: #09071a; }
 ::-webkit-scrollbar-thumb { background: #6C63C7; border-radius: 2px; }
 
-/* ── REVEAL ── */
 [data-reveal] {
   opacity: 0;
   transform: translateY(44px);
@@ -44,7 +67,6 @@ h1, h2, h3, h4, h5, h6 {
 [data-delay="5"] { transition-delay: 0.40s; }
 [data-delay="6"] { transition-delay: 0.48s; }
 
-/* ── HERO ── */
 .hero-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
@@ -52,7 +74,6 @@ h1, h2, h3, h4, h5, h6 {
   will-change: opacity;
 }
 
-/* ── WORD REVEAL ── */
 .word-wrap { overflow: hidden; display: inline-block; }
 .word-inner {
   display: inline-block;
@@ -62,7 +83,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .word-inner.up { transform: translateY(0); }
 
-/* ── BTN PRIMARY ── */
 .btn-primary {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 15px 34px; border-radius: 100px;
@@ -76,7 +96,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 55px rgba(108,99,199,0.62); }
 
-/* ── BTN OUTLINE ── */
 .btn-outline {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 15px 34px; border-radius: 100px;
@@ -88,7 +107,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-outline:hover { border-color: rgba(123,116,224,0.7); color: #fff; background: rgba(108,99,199,0.12); }
 
-/* ── BTN DARK ── */
 .btn-dark {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 32px; border-radius: 100px;
@@ -101,7 +119,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,199,0.55); }
 
-/* ── BTN LIGHT ── */
 .btn-light {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 32px; border-radius: 100px;
@@ -114,7 +131,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-light:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,199,0.45); }
 
-/* ── SECTION LABEL ── */
 .section-label {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.58rem; font-weight: 600;
@@ -128,7 +144,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #6C63C7; display: block;
 }
 
-/* ── TAG ── */
 .tag {
   display: inline-block; padding: 3px 10px; border-radius: 100px;
   font-size: 0.58rem; font-weight: 500;
@@ -137,7 +152,6 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap; font-family: 'DM Sans',sans-serif;
 }
 
-/* ── MARQUEE ── */
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee-track {
   display: flex; gap: 2rem; width: max-content;
@@ -145,20 +159,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .marquee-track:hover { animation-play-state: paused; }
 
-/* ── IMG ZOOM ── */
 .img-wrap { overflow: hidden; }
 .img-wrap img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
 .img-wrap:hover img { transform: scale(1.06); }
 
-/* ── CARD ── */
 .card { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.4s; }
 .card:hover { transform: translateY(-6px); }
 
-/* ── SCROLL CUE ── */
 @keyframes bounce { 0%,100% { transform: translateY(0); opacity:0.5; } 50% { transform: translateY(8px); opacity:0.15; } }
 .scroll-cue { animation: bounce 2.2s ease-in-out infinite; }
 
-/* ── BACK TO TOP ── */
 .btt {
   position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9000;
   width: 46px; height: 46px; border-radius: 50%;
@@ -172,7 +182,6 @@ h1, h2, h3, h4, h5, h6 {
 .btt.show { opacity: 1; transform: none; pointer-events: auto; }
 .btt:hover { transform: translateY(-4px) scale(1.1); box-shadow: 0 16px 44px rgba(108,99,199,0.7); }
 
-/* ── G-TEXT ── */
 .g-text {
   background: linear-gradient(135deg,#c4bfff 0%,#7B74E0 55%,#6C63C7 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
@@ -182,7 +191,6 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-/* ── CTA BAND ── */
 .cta-band {
   background: linear-gradient(135deg,#09071a,#1a1740);
   border-top: 1px solid rgba(123,116,224,0.1);
@@ -197,7 +205,6 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-/* ── MISC ── */
 .clamp3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .max-w { max-width:1280px; margin:0 auto; }
 .sp { padding:clamp(5rem,10vw,8rem) clamp(1.25rem,5vw,4rem); }

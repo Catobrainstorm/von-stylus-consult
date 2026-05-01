@@ -4,6 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "VON STYLUS Consult | Where Precision Meets Bold Vision",
   description: "VON STYLUS Consult — a bold, full-service consultancy in Lagos offering business strategy, creative media, advertising, and event management. We transform ambition into results.",
+  // ✅ NEXT.JS WAY: Define the icon in metadata
+  icons: {
+    icon: "/images/fav.png",
+    shortcut: "/images/fav.png",
+    apple: "/images/fav.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -13,6 +19,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* ✅ TRADITIONAL WAY: Explicit link tag for safety */}
+        <link rel="icon" href="/images/fav.png" />
       </head>
       <body>{children}</body>
     </html>

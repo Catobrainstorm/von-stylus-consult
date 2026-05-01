@@ -16,73 +16,85 @@ export default function About() {
   return (
     <section id="about" style={{ overflow: "hidden" }}>
       
-      {/* ✅ WHITE SECTION (Top Story) */}
-      <div style={{ background: "#ffffff", padding: "clamp(5rem,10vw,8rem) 0" }}>
+      {/* ✅ SUPERB EDITORIAL SECTION */}
+      <div style={{ background: "#ffffff", padding: "clamp(6rem,12vw,10rem) 0" }}>
         <div className="max-w" style={{ margin: "0 auto", padding: "0 clamp(1.25rem,5vw,4rem)" }}>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap: "clamp(2rem,6vw,5rem)", alignItems: "center" }} className="col-1">
+          
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1.2fr", gap: "clamp(3rem,8vw,6rem)", alignItems: "start" }} className="col-1">
             
-            {/* Left: Text Content */}
-            <div style={{ display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <span className="section-label-dark" data-reveal style={{ marginBottom:"1.25rem" }}>Who We Are</span>
+            {/* ── LEFT SIDE: BALANCED HEADLINE & CTA ── */}
+            <div style={{ position: "sticky", top: "140px" }}>
+              <span className="section-label-dark" data-reveal style={{ marginBottom:"1.5rem", letterSpacing: "0.4em", fontSize: "0.65rem" }}>Who We Are</span>
               
               <h2 data-reveal data-delay="1" style={{ 
-                fontFamily:"'Young Serif', serif", 
-                fontWeight: 400,
-                fontSize:"clamp(2.5rem,4.5vw,4.5rem)", 
+                fontFamily:"'Playfair Display', serif", 
+                fontWeight: 700,
+                // ✅ UPDATED: SLIGHTLY LARGER FOR IMPACT (FROM 3.2rem to 4.2rem)
+                fontSize:"clamp(2.5rem, 4.5vw, 4.2rem)", 
                 color:"#09071a", 
-                lineHeight:1.05, 
-                marginBottom:"1.5rem" 
+                lineHeight:1.1, 
+                letterSpacing: "-0.025em",
+                marginBottom:"2.8rem" 
               }}>
-                Authored With Intention.{" "}
-                <em className="g-text-p" style={{ fontStyle:"italic", color: "#6C63C7" }}>Delivered With Impact.</em>
+                Authored With <br /> Intention.{" "}
+                <br />
+                <em className="g-text-p" style={{ fontStyle:"italic", color: "#6C63C7", fontWeight: 400 }}>Delivered With Impact.</em>
               </h2>
 
-              <p data-reveal data-delay="2" style={{ fontFamily:"'DM Sans',sans-serif", color:"#4a4770", fontSize:"clamp(1rem,1.3vw,1.05rem)", lineHeight:1.85, marginBottom:"1rem" }}>
-                A stylus is a tool of precision, intention, and craft. Every mark it makes is deliberate. That's the philosophy at the heart of everything we do at <strong style={{ color:"#09071a" }}>VON STYLUS Consult.</strong>
-              </p>
-              
-              <p data-reveal data-delay="3" style={{ fontFamily:"'DM Sans',sans-serif", color:"#7a789a", fontSize:"clamp(0.9rem,1.2vw,0.95rem)", lineHeight:1.85, marginBottom:"2.5rem" }}>
-                Founded to bridge the gap between strategic thinking and creative execution, we've grown into a full-service consultancy operating at the intersection of business, media, and culture.
-              </p>
-
               <div data-reveal data-delay="4">
-                <button className="btn-light" onClick={()=>scroll("#services")} style={{ cursor: "pointer" }}>See What We Do →</button>
+                <button className="btn-light" onClick={()=>scroll("#services")} style={{ padding: "16px 36px", fontSize: "14px", fontWeight: 600 }}>See What We Do →</button>
               </div>
             </div>
 
-            {/* Right: The Image */}
-            <div data-reveal="right" style={{ position:"relative", height: "100%", minHeight: "550px", borderRadius: "32px", overflow: "hidden", boxShadow: "0 40px 100px rgba(75,68,168,0.12)" }}>
-              <img
-                src="/images/image5.png"
-                alt="Von Stylus team session"
-                style={{ width:"100%", height:"100%", objectFit:"cover" }}
-              />
+            {/* ── RIGHT SIDE: LANDSCAPE IMAGE & PROSE ── */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "4rem" }}>
+              
+              {/* Landscape Image */}
+              <div data-reveal="right" className="img-wrap" style={{ 
+                position:"relative", 
+                width: "100%",
+                aspectRatio: "16 / 9", 
+                borderRadius: "32px", 
+                overflow: "hidden", 
+                boxShadow: "0 40px 100px rgba(9,7,26,0.08)" 
+              }}>
+                <img
+                  src="/images/image5.png"
+                  alt="Von Stylus team session"
+                  style={{ width:"100%", height:"100%", objectFit:"cover" }}
+                />
+              </div>
+
+              {/* Prose Content Under Image */}
+              <div style={{ maxWidth: "560px", paddingLeft: "1.5rem", borderLeft: "1px solid rgba(108,99,199,0.15)" }}>
+                <p data-reveal data-delay="2" style={{ fontFamily:"'DM Sans',sans-serif", color:"#4a4770", fontSize:"clamp(1.05rem, 1.25vw, 1.15rem)", lineHeight:1.8, marginBottom:"1.8rem" }}>
+                  A stylus is a tool of precision, intention, and craft. Every mark it makes is deliberate. That's the philosophy at the heart of everything we do at <strong style={{ color:"#09071a" }}>VON STYLUS Consult.</strong>
+                </p>
+                
+                <p data-reveal data-delay="3" style={{ fontFamily:"'DM Sans',sans-serif", color:"#7a789a", fontSize:"0.95rem", lineHeight:1.85 }}>
+                  Founded to bridge the gap between strategic thinking and creative execution, we've grown into a full-service consultancy operating at the intersection of business, media, and culture — serving corporate enterprises, SMEs, government agencies, and NGOs.
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      {/* ✅ DARK SECTION (The 4 Cards in 1 line) */}
-      <div style={{ background:"#09071a", padding:"clamp(6rem,12vw,10rem) 0" }}>
+      {/* ✅ DARK PILLARS SECTION */}
+      <div style={{ background:"#09071a", padding:"clamp(6rem,12vw,10rem) 0", borderTop: "1px solid rgba(123,116,224,0.08)" }}>
         <div className="max-w" style={{ margin: "0 auto", padding: "0 clamp(1.25rem,5vw,4rem)" }}>
-          
-          <span className="section-label" data-reveal style={{ textAlign:"center", marginBottom:"clamp(3rem,5vw,4rem)", display:"block", color: "#a89ff5" }}>What Drives Us Every Day</span>
-          
-          {/* ✅ FORCED 4 COLUMNS ON DESKTOP */}
           <div style={{ 
             display:"grid", 
             gridTemplateColumns: "repeat(4, 1fr)", 
-            gap:"1.25rem" 
+            gap:"1.5rem" 
           }} className="pillar-grid">
             {pillars.map((p, i) => (
-              <div key={p.n} data-reveal data-delay={String(i+1)} className="card" style={{ background:"rgba(45,38,96,0.28)", border:"1px solid rgba(123,116,224,0.12)", borderRadius:24, padding:"2rem 1.5rem", position:"relative", overflow:"hidden", transition: "all 0.4s" }}
-                onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor="rgba(123,116,224,0.45)";el.style.background="rgba(75,68,168,0.22)";el.style.transform="translateY(-8px)";}}
-                onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor="rgba(123,116,224,0.12)";el.style.background="rgba(45,38,96,0.28)";el.style.transform="none";}}
-              >
-                <span style={{ position:"absolute", top:12, right:16, fontFamily:"'Young Serif', serif", fontWeight:400, fontSize:"3.5rem", color:"rgba(123,116,224,0.08)", lineHeight:1 }}>{p.n}</span>
-                <div style={{ width:18, height:18, transform:"rotate(45deg)", border:"1px solid rgba(123,116,224,0.4)", background:"rgba(123,116,224,0.1)", marginBottom:"1.5rem" }} />
-                <h3 style={{ fontFamily:"'Young Serif', serif", fontWeight:400, color:"#fff", fontSize:"1.25rem", marginBottom:"0.75rem" }}>{p.title}</h3>
-                <p style={{ fontFamily:"'DM Sans',sans-serif", color:"rgba(255,255,255,0.4)", fontSize:"0.85rem", lineHeight:1.75 }}>{p.desc}</p>
+              <div key={p.n} data-reveal data-delay={String(i+1)} className="card" style={{ background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:28, padding:"2.5rem 2rem", position:"relative", overflow:"hidden" }}>
+                <span style={{ position:"absolute", top:15, right:20, fontFamily:"'Playfair Display', serif", fontWeight:700, fontSize:"4rem", color:"rgba(123,116,224,0.05)", lineHeight:1 }}>{p.n}</span>
+                <div style={{ width:24, height:2, background:"#7B74E0", marginBottom:"2rem" }} />
+                <h3 style={{ fontFamily:"'Playfair Display', serif", fontWeight:700, color:"#fff", fontSize:"1.3rem", marginBottom:"1rem" }}>{p.title}</h3>
+                <p style={{ fontFamily:"'DM Sans',sans-serif", color:"rgba(255,255,255,0.35)", fontSize:"0.85rem", lineHeight:1.8 }}>{p.desc}</p>
               </div>
             ))}
           </div>
@@ -90,11 +102,13 @@ export default function About() {
       </div>
 
       <style jsx>{`
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
           .pillar-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .pillar-grid { grid-template-columns: 1fr !important; }
+          .col-1 { grid-template-columns: 1fr !important; gap: 4rem !important; }
+          .img-wrap { aspectRatio: 4 / 3 !important; }
         }
       `}</style>
     </section>
