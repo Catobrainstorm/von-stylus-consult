@@ -19,7 +19,7 @@ export default function Approach() {
       {/* ✅ HEADER WITH BACKGROUND IMAGE */}
       <div className="img-wrap" style={{ position:"relative", height:"clamp(300px,45vh,500px)", overflow:"hidden", display: "flex", alignItems: "flex-end" }}>
         <img
-          src="/images/image6.jpg" 
+          src="/images/image6.JPEG" 
           alt="Black team holding hands in unity"
           style={{ position: "absolute", inset: 0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center" }}
         />

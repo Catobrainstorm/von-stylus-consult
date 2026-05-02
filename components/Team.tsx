@@ -1,6 +1,6 @@
 "use client";
 
-// ✅ EXACT TEAM ORDER
+// ✅ UPDATED TEAM ORDER (11 Members)
 const team = [
   { n:"01", name:"Kemi Vaughan-Aderibigbe", role:"Founder & Lead Strategist", bio:"A global communications strategist with CIM UK certifications. Delivering strategy, creative media, and advertising across four continents.", expertise:["Global Communications","Marketing Strategy","Business Consulting"], color:"#6C63C7", photo:"/images/kemi.jpeg" },
   { n:"02", name:"Ilawole Oluwatosin", role:"International Development Advisor", bio:"MEL specialist with 12+ years across 56 countries managing budgets up to £3 million for FCDO and GIZ-funded programmes.", expertise:["Programme Strategy","Monitoring & Evaluation","Development"], color:"#4B44A8", photo:"/images/ilawole.jpeg" },
@@ -12,6 +12,7 @@ const team = [
   { n:"08", name:"Rachael Ayodeji", role:"Communications Officer", bio:"Digital professional specialising in brand strategy, content development, and audience engagement for the GenZ market.", expertise:["Digital Comms","Brand Strategy","GenZ Marketing"], color:"#9B94F0", photo:"/images/rachel.jpeg" },
   { n:"09", name:"Zika Taiwo", role:"HR Consultant", bio:"Expertise in project management, team strategy, capacity building, and operational reporting for corporate efficiency.", expertise:["HR Strategy","Capacity Building","Project Management"], color:"#6C63C7", photo:"/images/zika_taiwo.png" },
   { n:"10", name:"Oluwatobi A. Ogunjimi", role:"Creative Lead", bio:"Multidisciplinary creative specializing in brand design and UX research. Leads all creative output for intentional visual assets.", expertise:["Brand Design","UI Design","Visual Storytelling"], color:"#4B44A8", photo:"/images/oluwatobi.jpeg" },
+  { n:"11", name:"Anuoluwapo Oluwaseun Ojo", role:"Experiential Marketing Consultant", bio:"Mathematics graduate from UNILAG with 10+ years in experiential marketing. Founder of WIH Limited, specializing in innovative brand storytelling and results-driven consumer engagement.", expertise:["Experiential Marketing","Brand Storytelling","Strategic Planning"], color:"#7B74E0", photo:"/images/seun.jpg" },
 ];
 
 export default function Team() {
@@ -28,7 +29,7 @@ export default function Team() {
         <div data-reveal style={{ marginBottom:"clamp(3rem,6vw,5rem)" }}>
           <span className="section-label-dark" style={{ marginBottom:"1rem", color: "#6C63C7", letterSpacing: "3px" }}>The People Behind the Precision</span>
           <div style={{ display:"flex", flexWrap:"wrap", alignItems:"flex-end", justifyContent:"space-between", gap:"1.5rem" }}>
-            <h2 style={{ fontFamily:"'Young Serif', serif", fontWeight: 400, fontSize:"clamp(2.2rem,5vw,4.5rem)", color:"#09071a", lineHeight:1.1 }}>
+            <h2 style={{ fontFamily:"'Playfair Display', serif", fontWeight: 700, fontSize:"clamp(2.2rem,5vw,4.5rem)", color:"#09071a", lineHeight:1.1 }}>
               Meet the <em className="g-text-p" style={{ fontStyle:"italic", color: "#6C63C7" }}>Team.</em>
             </h2>
             <p style={{ fontFamily:"'DM Sans',sans-serif", color:"#666", maxWidth:380, fontSize:"0.95rem", lineHeight:1.8 }}>
@@ -37,7 +38,7 @@ export default function Team() {
           </div>
         </div>
 
-        {/* GRID: 4, 3, 3 Dynamic Structure */}
+        {/* GRID: 3, 4, 4 Dynamic Structure */}
         <div style={{ 
           display:"grid", 
           gridTemplateColumns: "repeat(12, 1fr)", 
@@ -45,9 +46,11 @@ export default function Team() {
           marginBottom:"clamp(3rem,6vw,5rem)" 
         }} className="team-grid">
           {team.map((m, i) => {
-            const gridSpan = i < 4 ? 3 : 4; 
+            // ✅ Logic for 3-4-4 arrangement
+            // First 3 members span 4 columns each (Total 12)
+            // Next 8 members span 3 columns each (Total 24 / 12 = 2 rows of 4)
+            const gridSpan = i < 3 ? 4 : 3; 
             
-            // ✅ Fix specifically for Rachael Ayodeji (08)
             const photoPosition = m.n === "08" ? "center 20%" : "center top";
 
             return (
@@ -60,7 +63,6 @@ export default function Team() {
                 onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.transform="none";el.style.boxShadow="0 4px 25px rgba(75,68,168,0.04)";el.style.borderColor="rgba(75,68,168,0.08)";}}
               >
                 <div className="img-wrap" style={{ height:260, position:"relative", overflow: "hidden" }}>
-                  {/* ✅ Using photoPosition to fix Rachael's image */}
                   <img src={m.photo} alt={m.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition: photoPosition }} />
                   {i === 0 && (
                      <div style={{ position:"absolute", top:15, left:15, background:"linear-gradient(135deg,#6C63C7,#4B44A8)", padding:"4px 12px", borderRadius:100, zIndex: 2 }}>
@@ -71,7 +73,7 @@ export default function Team() {
                 
                 <div style={{ padding:"1.5rem" }}>
                   <div style={{ marginBottom:"1rem" }}>
-                    <h3 style={{ fontFamily:"'Young Serif', serif", color:"#09071a", fontSize:"1.15rem", lineHeight:1.2 }}>{m.name}</h3>
+                    <h3 style={{ fontFamily:"'Playfair Display', serif", fontWeight: 700, color:"#09071a", fontSize:"1.15rem", lineHeight:1.2 }}>{m.name}</h3>
                     <p style={{ fontFamily:"'DM Sans',sans-serif", color:m.color, fontSize:"0.75rem", fontWeight:600, marginTop:4 }}>{m.role}</p>
                   </div>
                   <p className="clamp3" style={{ fontFamily:"'DM Sans',sans-serif", color:"#777", fontSize:"0.8rem", lineHeight:1.7, marginBottom:"1.25rem", minHeight: "4rem" }}>{m.bio}</p>

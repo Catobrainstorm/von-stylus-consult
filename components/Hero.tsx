@@ -3,10 +3,10 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
-  { url: "/images/image1.png", tag: "Strategy & Vision" },
-  { url: "/images/image2.png", tag: "Leadership & Excellence" },
-  { url: "/images/image3.png", tag: "Creative Media" },
-  { url: "/images/image4.png", tag: "Consulting & Growth" },
+  { url: "/images/image1.PNG", tag: "Strategy & Vision" },
+  { url: "/images/image2.PNG", tag: "Leadership & Excellence" },
+  { url: "/images/image3.PNG", tag: "Creative Media" },
+  { url: "/images/image4.PNG", tag: "Consulting & Growth" },
 ];
 
 const WORDS = [

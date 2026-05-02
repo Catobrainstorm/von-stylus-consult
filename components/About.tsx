@@ -59,7 +59,7 @@ export default function About() {
                 boxShadow: "0 40px 100px rgba(9,7,26,0.08)" 
               }}>
                 <img
-                  src="/images/image5.png"
+                  src="/images/image5.PNG"
                   alt="Von Stylus team session"
                   style={{ width:"100%", height:"100%", objectFit:"cover" }}
                 />
